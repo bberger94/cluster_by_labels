@@ -9,6 +9,7 @@ cluster_by_labels <- function(data, elements, labels){
     mutate(vid = 1:n()) %>% 
     left_join(data)
   
+  
   vertices <- pull(distinct(data, vid))
   
   edges <- expand.grid(vertices, vertices) %>% 
@@ -16,8 +17,8 @@ cluster_by_labels <- function(data, elements, labels){
     filter(v1 >= v2)
   
   edges <- edges %>% 
-    left_join(data %>% select(-id), by = c('v1' = 'vid')) %>% 
-    left_join(data %>% select(-id), by = c('v2' = 'vid')) %>% 
+    left_join(data %>% select(vid, label), by = c('v1' = 'vid')) %>% 
+    left_join(data %>% select(vid, label), by = c('v2' = 'vid')) %>% 
     filter(label.x == label.y) %>% 
     select(v1, v2) %>% 
     distinct
@@ -51,11 +52,12 @@ cluster_by_labels <- function(data, elements, labels){
 }
 
 test <- function(){
-  n = 100
+  n = 10
   data <- data.frame(
     id = sample(letters, size = n, replace = T),
     label = sample(LETTERS, size = n, replace = T)
     )
+  print(data)
   cluster_by_labels(data, 'id', 'label')  
 }
 
