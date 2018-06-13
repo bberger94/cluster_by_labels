@@ -10,6 +10,8 @@ cluster_by_labels <-
   library(dplyr)
   library(tidygraph)
   
+  left_join <- function(...) suppressMessages(dplyr::left_join(...))
+    
   elements <- enquo(elements)
   labels <- enquo(labels)
   
@@ -68,7 +70,7 @@ cluster_by_labels <-
   # Drop labels if requested
   if(return_labels == FALSE) data <- data %>% select(-labels, -cluster_labels)
   
-  data
+  return(data)
 }
 
 
