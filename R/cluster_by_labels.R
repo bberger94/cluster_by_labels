@@ -8,6 +8,7 @@
 #' @param labels Column name for labels.
 #' @param return_labels Return label columns for elements and clusters.
 #' @keywords cluster labels network graph components connected
+#' @export
 
 cluster_by_labels  <-
   function(data,
