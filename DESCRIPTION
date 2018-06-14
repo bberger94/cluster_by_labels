@@ -3,7 +3,7 @@ Title: Cluster data elements by a network of shared labels.
 Version: 0.0.0.9000
 Authors@R: person("Ben", "Berger", email = "benjaminAberger94@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
-Depends: R (>= 3.4.3)
+Depends: R (>= 3.4.1)
 License: MIT
 Imports: dplyr, tidygraph
 Encoding: UTF-8
