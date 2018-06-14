@@ -20,9 +20,6 @@ This function allows you to input a data frame of elements and associated labels
 based on whether they share labels with other elements. Returns a data frame of the supplied element IDs and
 assigned cluster IDs.
 }
-\examples{
-cluster_by_labels()
-}
 \keyword{cluster}
 \keyword{components}
 \keyword{connected}
